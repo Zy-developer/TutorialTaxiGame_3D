@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "6cbfb754-2df2-4a9a-aa3c-3f5ef6f79825",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "6cbfb754-2df2-4a9a-aa3c-3f5ef6f79825@6c48a",
+      "displayName": "fightBox2a",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "6cbfb754-2df2-4a9a-aa3c-3f5ef6f79825"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "6cbfb754-2df2-4a9a-aa3c-3f5ef6f79825@6c48a"
+  }
+}
