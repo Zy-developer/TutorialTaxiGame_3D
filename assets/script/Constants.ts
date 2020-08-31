@@ -24,6 +24,10 @@ export class Constants {
         END_BRAKING: "END_BRAKING",
         /** 显示金币. */
         SHOW_COIN: "SHOW_COIN",
+        /** 游戏开始. */
+        GAME_START: "GAME_START",
+        /** 游戏结束. */
+        GAME_OVER: "GAME_OVER",
     };
 
     /** 乘客状态. */
@@ -59,5 +63,12 @@ export class Constants {
         TOOTING2: "tooting2",
         /** 胜利. */
         WIN: "win",
+    };
+
+    /** 小车分组. */
+    public static CarGroup = {
+        NORMAL: 1 << 0,
+        MAIN_CAR: 1 << 1,
+        OTHER_CAR: 1 << 2,
     };
 }

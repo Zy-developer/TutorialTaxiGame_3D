@@ -5,7 +5,7 @@
  * 游戏控制.
  */
 
-import { _decorator, Component, Node, EventTouch } from 'cc';
+import { _decorator, Component, Node, EventTouch, BoxColliderComponent } from 'cc';
 import { AudioManager } from './AudioManager';
 import { CarManager } from './CarManager';
 import { Constants } from './Constants';
@@ -27,9 +27,16 @@ export class GameCtrl extends Component {
     @property({ type: CarManager, tooltip: "小车管理.", displayOrder: 2 })
     carMgr: CarManager = null;
 
+    @property({type: Node, tooltip: "地板."})
+    group: Node = null;
+
     onLoad() {
         this.mapMgr.resetMap();
         this.carMgr.reset(this.mapMgr.currentPath);
+
+        const collider = this.group.getComponent(BoxColliderComponent);
+        collider.setGroup(Constants.CarGroup.NORMAL);
+        collider.setMask(-1);
     }
 
     start() {

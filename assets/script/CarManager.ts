@@ -7,6 +7,8 @@
 
 import { _decorator, Component, Node, loader, Prefab, instantiate } from 'cc';
 import { Car } from './Car';
+import { Constants } from './Constants';
+import { CustomEventListener } from './CustomEventListener';
 import { PoolManager } from './PoolManager';
 import { RoadPoint, RoadPointType } from './RoadPoint';
 const { ccclass, property } = _decorator;
@@ -29,6 +31,8 @@ export class CarManager extends Component {
 
     start() {
         // Your initialization goes here.
+
+        CustomEventListener.on(Constants.EventName.GAME_OVER, this.gameOver, this);
     }
 
     // update (deltaTime: number) {
@@ -65,7 +69,19 @@ export class CarManager extends Component {
     }
 
     private stopSchedule() {
-        
+        for (let i = 1, node: Node, roadPoint: RoadPoint; i < this._currentPath.length; ++i) {
+            node = this._currentPath[i];
+            roadPoint = node.getComponent(RoadPoint);
+            roadPoint.stopSchedule();
+        }
+    }
+
+    private gameOver() {
+        this.stopSchedule();
+        for (let i = 0; i < this._aiCars.length; i++) {
+            const car = this._aiCars[i];
+            car.stopImmediately();
+        }
     }
 
     private createEnemy(roadPoint: RoadPoint, carId: string) {

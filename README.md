@@ -1,4 +1,8 @@
-# Taxi_3D
+# TutorialTaxiGame_3D
+
+[![Version](https://img.shields.io/badge/Cocos_Creator_3D-v1.1.1-FF69B4.svg?style=plastic)](https://www.cocos.com/products#CocosCreator3D)
+[![Languages](https://img.shields.io/badge/language-TypeScript-FF69B4.svg?style=plastic)](#)
+[![License](https://img.shields.io/badge/License-MIT-FF69B4.svg?style=plastic)](https://github.com/Zy-developer/TutorialTaxiGame_3D/blob/master/LICENSE)
 
 #### 介绍.
 
@@ -8,7 +12,7 @@
 
 - 学习视频: **[Cocos Creator 3D 官方中文教程(合集)](https://www.bilibili.com/video/av95640957?p=1)**.
 
-- 学习进度: **P11 小车碰撞逻辑实现(二) 00:00/38:42**
+- 学习进度: **P11 小车碰撞逻辑实现(二) 25:14/38:42**
 
 #### Creator 版本.
 

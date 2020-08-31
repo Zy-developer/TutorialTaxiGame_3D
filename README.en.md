@@ -1,36 +1,20 @@
-# Taxi_3D
 
-#### Description
-Cocos Creator 3D 学习项目.
+### …or create a new repository on the command line.
 
-#### Software Architecture
-Software architecture description
+```
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/Zy-developer/TutorialTaxiGame_3D.git
+git push -u origin master
+```
 
-#### Installation
+### …or push an existing repository from the command line.
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+```
+git remote add origin https://github.com/Zy-developer/TutorialTaxiGame_3D.git
+git branch -M master
+git push -u origin master
+```
 
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)

@@ -23,7 +23,7 @@
         "__id__": 28
       },
       {
-        "__id__": 31
+        "__id__": 32
       },
       {
         "__id__": 35
@@ -33,10 +33,16 @@
     "_components": [
       {
         "__id__": 87
+      },
+      {
+        "__id__": 88
+      },
+      {
+        "__id__": 89
       }
     ],
     "_prefab": {
-      "__id__": 88
+      "__id__": 90
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -743,7 +749,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Camera",
+    "_name": "CarLight",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -756,7 +762,107 @@
       }
     ],
     "_prefab": {
+      "__id__": 31
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0.008,
+      "y": 0.158,
+      "z": -0.913
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": -0.7071067811865475,
+      "y": 0,
+      "z": 0,
+      "w": 0.7071067811865476
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 0.8,
+      "y": 0.8,
+      "z": 1
+    },
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": -90,
+      "y": 0,
+      "z": 0
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.ModelComponent",
+    "_name": "Quad<ModelComponent>",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 28
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "8e313d44-503e-4ca9-bc4d-3d83f90b8563"
+      }
+    ],
+    "_visFlags": 0,
+    "lightmapSettings": {
       "__id__": 30
+    },
+    "_mesh": {
+      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@fc873"
+    },
+    "_shadowCastingMode": 0,
+    "_enableMorph": true,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.ModelLightmapSettings",
+    "texture": null,
+    "uvParam": {
+      "__type__": "cc.Vec4",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 0
+    },
+    "_bakeable": false,
+    "_castShadow": false,
+    "_receiveShadow": false,
+    "_recieveShadow": false,
+    "_lightmapSize": 64
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "79HtDg16JBY7j1sRwajzlC",
+    "sync": false,
+    "_synced": {
+      "default": false,
+      "serializable": false
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Camera",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 33
+      }
+    ],
+    "_prefab": {
+      "__id__": 34
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -791,7 +897,7 @@
     "_name": "Camera<CameraComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 28
+      "__id__": 32
     },
     "_enabled": true,
     "_projection": 1,
@@ -843,107 +949,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "CarLight",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 1
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 32
-      }
-    ],
-    "_prefab": {
-      "__id__": 34
-    },
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0.008,
-      "y": 0.158,
-      "z": -0.913
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": -0.7071067811865475,
-      "y": 0,
-      "z": 0,
-      "w": 0.7071067811865476
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 0.8,
-      "y": 0.8,
-      "z": 1
-    },
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": -90,
-      "y": 0,
-      "z": 0
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.ModelComponent",
-    "_name": "Quad<ModelComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 31
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "8e313d44-503e-4ca9-bc4d-3d83f90b8563"
-      }
-    ],
-    "_visFlags": 0,
-    "lightmapSettings": {
-      "__id__": 33
-    },
-    "_mesh": {
-      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@fc873"
-    },
-    "_shadowCastingMode": 0,
-    "_enableMorph": true,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.ModelLightmapSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 0
-    },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__id__": 0
-    },
-    "fileId": "79HtDg16JBY7j1sRwajzlC",
-    "sync": false,
-    "_synced": {
-      "default": false,
-      "serializable": false
-    }
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Particle_gas",
+    "_name": "gas",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -1566,6 +1572,61 @@
       "__id__": 1
     },
     "_enabled": true,
+    "particle_ges": {
+      "__id__": 36
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.BoxColliderComponent",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_material": null,
+    "_isTrigger": false,
+    "_center": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0.3,
+      "z": 0
+    },
+    "_size": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 0.5,
+      "z": 1.2
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.RigidBodyComponent",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_mass": 1,
+    "_linearDamping": 0,
+    "_angularDamping": 0,
+    "_fixedRotation": false,
+    "_isKinematic": false,
+    "_useGravity": false,
+    "_linearFactor": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_angularFactor": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
     "_id": ""
   },
   {

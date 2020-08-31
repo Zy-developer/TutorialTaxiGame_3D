@@ -5,7 +5,7 @@
  * 小车.
  */
 
-import { _decorator, Component, Node, Vec3, ParticleSystemComponent } from 'cc';
+import { _decorator, Component, Node, Vec3, ParticleSystemComponent, BoxColliderComponent, RigidBodyComponent, ICollisionEvent } from 'cc';
 import { AudioManager } from './AudioManager';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
@@ -20,6 +20,9 @@ export class Car extends Component {
     /* use `property` decorator if your want the member to be serializable */
     // @property
     // serializableDummy = 0;
+
+    @property({type: ParticleSystemComponent, tooltip: "汽车尾气粒子."})
+    particle_ges: ParticleSystemComponent = null;
 
     private static tempVec: Vec3 = new Vec3();
 
@@ -170,11 +173,26 @@ export class Car extends Component {
                 this.node.eulerAngles = new Vec3(0, 90, 0);
             }
         }
+        const collider = this.node.getComponent(BoxColliderComponent);
         if (this._isMain) {
-            const gesNode = this.node.getChildByName("Particle_gas");
-            this._gesParticle = gesNode.getComponent(ParticleSystemComponent);
-            this._gesParticle.play();
+            if (this.particle_ges) {
+                this.particle_ges.play();
+            }
+            // 监听碰撞回调.
+            collider.on("onCollisionEnter", this.onCollisionEnter, this);
+            // 设置碰撞分组.
+            collider.setGroup(Constants.CarGroup.MAIN_CAR);
+            // 设置碰撞掩码.
+            collider.setMask(Constants.CarGroup.OTHER_CAR);
+        } else {
+            // 设置碰撞分组.
+            collider.setGroup(Constants.CarGroup.OTHER_CAR);
+            // 设置碰撞掩码.
+            // collider.setMask(Constants.CarGroup.MAIN_CAR + Constants.CarGroup.NORMAL);
+            // 所有组都检测的掩码 -1, 所有组都不检测的掩码 0.
+            collider.setMask(-1);
         }
+        this.resetPhysical();
     }
 
     /** 开始运动. */
@@ -198,6 +216,11 @@ export class Car extends Component {
 
     public moveAfterFinished(callback: Function) {
         this._overCallback = callback;
+    }
+
+    public stopImmediately() {
+        this._isMain = false;
+        this._currentSpeed = 0;
     }
 
     /** 到站. */
@@ -237,11 +260,33 @@ export class Car extends Component {
         }
     }
 
+    /** 进入碰撞. */
+    private onCollisionEnter(event: ICollisionEvent) {
+        // console.log(`===> onCollisionEnter `, event);
+        const other = event.otherCollider, otherBody = other.getComponent(RigidBodyComponent);
+        if (otherBody) {
+            otherBody.useGravity = true;
+        }
+
+        const self = event.selfCollider, selfBody = this.getComponent(RigidBodyComponent);
+        self.addMask(Constants.CarGroup.NORMAL);
+        selfBody.useGravity = true;
+
+        this.gameOver();
+    }
+
+    private resetPhysical() {
+        const body = this.getComponent(RigidBodyComponent);
+        body.useGravity = false;
+        body.sleep();
+        body.wakeUp();
+    }
+
     /** 接乘客. */
     private greetingCustomer() {
         this._isInOrder = true;
         this._currentSpeed = 0;
-        this._gesParticle.stop();
+        this.particle_ges.stop();
         CustomEventListener.emit(Constants.EventName.GREETING, this.node.worldPosition, this._currentRoadPoint.direction);
     }
 
@@ -249,7 +294,7 @@ export class Car extends Component {
     private goodbydCustomer() {
         this._isInOrder = true;
         this._currentSpeed = 0;
-        this._gesParticle.stop();
+        this.particle_ges.stop();
         CustomEventListener.emit(Constants.EventName.GOODBYD, this.node.worldPosition, this._currentRoadPoint.direction);
         CustomEventListener.emit(Constants.EventName.SHOW_COIN, this.node.worldPosition);
     }
@@ -259,7 +304,7 @@ export class Car extends Component {
         this._isInOrder = false;
         this._isMoving = this._touchState;
         this._currentSpeed = .1;
-        this._gesParticle.play();
+        this.particle_ges && this.particle_ges.play();
         // console.log(`===> walk finished isInOrder: ${this._isInOrder}, isMoving: ${this._isMoving}, touchState: ${this._touchState}.`, );
     }
 
@@ -289,6 +334,11 @@ export class Car extends Component {
             let radiu = Car.tempVec.length();
             this._rotMeasure = 90 / (Math.PI * radiu / 2);
         }
+    }
+
+    /** 游戏结束. */
+    private gameOver() {
+        CustomEventListener.emit(Constants.EventName.GAME_OVER);
     }
 
     /** 角度转换为正值. */
