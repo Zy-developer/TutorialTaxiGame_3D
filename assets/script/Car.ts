@@ -58,6 +58,7 @@ export class Car extends Component {
     /** 汽车尾气. */
     private _gesParticle: ParticleSystemComponent = null;
     private _overCallback: Function = null;
+    private _camera: Node = null;
 
     public maxSpeed: number = 1;
 
@@ -75,9 +76,11 @@ export class Car extends Component {
         // 更新移动.
         this._offset = this.node.worldPosition;
         
-        this._currentSpeed += this._acceleration * deltaTime;
-        if (this._currentSpeed > .5) {
-            this._currentSpeed = .5;
+        if (this._isMain) {
+            this._currentSpeed += this._acceleration * deltaTime;
+            if (this._currentSpeed > .5) {
+                this._currentSpeed = .5;
+            }
         }
         if (this._currentSpeed <= .001) {
             this._isMoving = false;
@@ -195,6 +198,15 @@ export class Car extends Component {
         this.resetPhysical();
     }
 
+    public setCamera(camera: Node, pos: Vec3, angle: number) {
+        if (this._isMain) {
+            this._camera = camera;
+            camera.parent = this.node;
+            camera.position = pos;
+            camera.eulerAngles = new Vec3(angle, 0, 0);
+        }
+    }
+
     /** 开始运动. */
     public startRuning() {
         if (this._currentRoadPoint) {
@@ -266,6 +278,7 @@ export class Car extends Component {
         const other = event.otherCollider, otherBody = other.getComponent(RigidBodyComponent);
         if (otherBody) {
             otherBody.useGravity = true;
+            otherBody.applyForce(new Vec3(0, 3000, -1500), new Vec3(0, 0.5, 0));
         }
 
         const self = event.selfCollider, selfBody = this.getComponent(RigidBodyComponent);

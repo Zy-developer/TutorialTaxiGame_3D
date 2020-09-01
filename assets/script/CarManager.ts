@@ -5,12 +5,12 @@
  * 小车管理.
  */
 
-import { _decorator, Component, Node, loader, Prefab, instantiate } from 'cc';
+import { _decorator, Component, Node, loader, Prefab, instantiate, Vec3 } from 'cc';
 import { Car } from './Car';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
 import { PoolManager } from './PoolManager';
-import { RoadPoint, RoadPointType } from './RoadPoint';
+import { RoadPoint } from './RoadPoint';
 const { ccclass, property } = _decorator;
 
 @ccclass('CarManager')
@@ -24,6 +24,15 @@ export class CarManager extends Component {
 
     @property({ type: Car, tooltip: "小车." })
     mainCar: Car = null;
+
+    @property({type: Node, tooltip: "小车相机."})
+    cameraNode: Node = null;
+
+    @property({tooltip: "相机位置."})
+    cameraPos: Vec3 = new Vec3(0, 8, 8);
+
+    @property({tooltip: "相机角度."})
+    cameraAngle: number = -45;
 
     /** 当前路径点. */
     private _currentPath: Node[] = [];
@@ -42,6 +51,7 @@ export class CarManager extends Component {
     /** 重置小车. */
     public reset(points: Node[]) {
         if (!points || points.length <= 0) { return; }
+        this.recycleAllAICar();
         this.createMainCar(points[0]);
         this._currentPath = points;
         this.startSchedule();
@@ -58,6 +68,7 @@ export class CarManager extends Component {
 
     private createMainCar(point: Node) {
         this.mainCar.setEntry(point, true);
+        this.mainCar.setCamera(this.cameraNode, this.cameraPos, this.cameraAngle);
     }
 
     private startSchedule() {
@@ -78,6 +89,13 @@ export class CarManager extends Component {
 
     private gameOver() {
         this.stopSchedule();
+        /**
+         * 设置该节点的父节点.
+         *  @param value 父节点.
+         *  @param keepWorldTransform 是否保持节点的当前世界变换不变(默认false).
+         */
+        this.cameraNode.setParent(this.node.parent, true);
+        this.mainCar.stopImmediately();
         for (let i = 0; i < this._aiCars.length; i++) {
             const car = this._aiCars[i];
             car.stopImmediately();
@@ -103,5 +121,13 @@ export class CarManager extends Component {
         if (index < 0) { return; }
         PoolManager.putNode(car.node);
         this._aiCars.splice(index, 1);
+    }
+
+    private recycleAllAICar() {
+        for (let i = 0; i < this._aiCars.length; i++) {
+            const car = this._aiCars[i];
+            PoolManager.putNode(car.node);
+        }
+        this._aiCars.length = 0;
     }
 }
