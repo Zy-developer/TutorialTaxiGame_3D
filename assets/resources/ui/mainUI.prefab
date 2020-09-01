@@ -33,10 +33,13 @@
       },
       {
         "__id__": 24
+      },
+      {
+        "__id__": 25
       }
     ],
     "_prefab": {
-      "__id__": 25
+      "__id__": 26
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -723,6 +726,16 @@
       "x": 0.5,
       "y": 0.5
     },
+    "_id": ""
+  },
+  {
+    "__type__": "4c75cyPtSpDQYlnMbt5GKmB",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
     "_id": ""
   },
   {

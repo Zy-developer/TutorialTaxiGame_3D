@@ -269,6 +269,9 @@ export class Car extends Component {
             this._currentRoadPoint = null;
             this._overCallback && this._overCallback(this);
             this._overCallback = null;
+            if (this._isMain) {
+                CustomEventListener.emit(Constants.EventName.GAME_OVER);
+            }
         }
     }
 

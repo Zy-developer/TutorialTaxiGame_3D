@@ -9,7 +9,9 @@ import { _decorator, Component, Node, EventTouch, BoxColliderComponent } from 'c
 import { AudioManager } from './AudioManager';
 import { CarManager } from './CarManager';
 import { Constants } from './Constants';
+import { CustomEventListener } from './CustomEventListener';
 import { MapManager } from './MapManager';
+import { UIManager } from './UIManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameCtrl')
@@ -44,13 +46,33 @@ export class GameCtrl extends Component {
 
         this.node.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
+        CustomEventListener.on(Constants.EventName.GAME_START, this.gameStart, this);
+        CustomEventListener.on(Constants.EventName.GAME_OVER, this.gameOver, this);
+        CustomEventListener.on(Constants.EventName.NEW_LEVEL, this.newLevel, this);
 
         AudioManager.playMusic(Constants.AudioSource.BACKGROUND);
+
+        UIManager.showDialog(Constants.UIPage.mainUI);
     }
 
     // update (deltaTime: number) {
     //     // Your update function goes here.
     // }
+
+    private gameStart() {
+        UIManager.hideDialog(Constants.UIPage.mainUI);
+        UIManager.showDialog(Constants.UIPage.gameUI);
+    }
+
+    private gameOver() {
+        UIManager.hideDialog(Constants.UIPage.gameUI);
+        UIManager.showDialog(Constants.UIPage.resultUI);
+    }
+
+    private newLevel() {
+        UIManager.hideDialog(Constants.UIPage.resultUI);
+        UIManager.showDialog(Constants.UIPage.mainUI);
+    }
 
     /** 触摸开始. */
     private onTouchStart(event: EventTouch) {

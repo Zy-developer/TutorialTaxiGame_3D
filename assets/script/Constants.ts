@@ -28,6 +28,8 @@ export class Constants {
         GAME_START: "GAME_START",
         /** 游戏结束. */
         GAME_OVER: "GAME_OVER",
+        /** newLevel. */
+        NEW_LEVEL: "NEW_LEVEL",
     };
 
     /** 乘客状态. */
@@ -71,4 +73,18 @@ export class Constants {
         MAIN_CAR: 1 << 1,
         OTHER_CAR: 1 << 2,
     };
+
+    /** 乘客对话. */
+    public static talkTable = [
+        "请快点。\n我要赶飞机。",
+        "最美的日子\n不是雨天。"
+    ];
+
+    /** UI页面. */
+    public static UIPage = {
+        mainUI: "mainUI",
+        gameUI: "gameUI",
+        resultUI: "resultUI",
+    };
+
 }
