@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "e80b1ef6-21a5-408d-8231-f1b892b4e44c"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "e80b1ef6-21a5-408d-8231-f1b892b4e44c@f9941",
+      "displayName": "homeBoxGold",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 175,
+        "height": 42,
+        "rawWidth": 175,
+        "rawHeight": 42,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "e80b1ef6-21a5-408d-8231-f1b892b4e44c@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "e80b1ef6-21a5-408d-8231-f1b892b4e44c@6c48a"
+    "type": "sprite-frame",
+    "redirect": "e80b1ef6-21a5-408d-8231-f1b892b4e44c@f9941"
   }
 }

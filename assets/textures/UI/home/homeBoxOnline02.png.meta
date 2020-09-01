@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "2da6c933-8fd1-4fb8-a447-3e10a5a4fd61"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "2da6c933-8fd1-4fb8-a447-3e10a5a4fd61@f9941",
+      "displayName": "homeBoxOnline02",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 108,
+        "height": 148,
+        "rawWidth": 108,
+        "rawHeight": 148,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2da6c933-8fd1-4fb8-a447-3e10a5a4fd61@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "2da6c933-8fd1-4fb8-a447-3e10a5a4fd61@6c48a"
+    "type": "sprite-frame",
+    "redirect": "2da6c933-8fd1-4fb8-a447-3e10a5a4fd61@f9941"
   }
 }

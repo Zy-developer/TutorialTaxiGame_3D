@@ -11,7 +11,7 @@
   },
   {
     "__type__": "cc.Scene",
-    "_name": "",
+    "_name": "Scene",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -29,9 +29,6 @@
       },
       {
         "__id__": 350
-      },
-      {
-        "__id__": 471
       },
       {
         "__id__": 348
@@ -8927,15 +8924,18 @@
       },
       {
         "__id__": 410
+      },
+      {
+        "__id__": 469
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 469
+        "__id__": 471
       },
       {
-        "__id__": 470
+        "__id__": 472
       }
     ],
     "_prefab": null,
@@ -12458,46 +12458,17 @@
     }
   },
   {
-    "__type__": "dc51dQDna9IXJpSxcHBzjHe",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 350
-    },
-    "_enabled": true,
-    "_id": "5d0b9mIDRCNph2+pDYMtfb"
-  },
-  {
-    "__type__": "62744OS5IBCkaA7A9jBKMfq",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 350
-    },
-    "_enabled": true,
-    "customers": [
-      {
-        "__id__": 351
-      },
-      {
-        "__id__": 410
-      }
-    ],
-    "walkTime": 2,
-    "_id": "890im7ErxJaIz6J2xLI4ws"
-  },
-  {
     "__type__": "cc.Node",
     "_name": "effectManager",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 1
+      "__id__": 350
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 472
+        "__id__": 470
       }
     ],
     "_prefab": null,
@@ -12534,7 +12505,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 471
+      "__id__": 469
     },
     "_enabled": true,
     "brake": {
@@ -12544,6 +12515,35 @@
       "__uuid__": "80eae9cb-d9fa-4fe2-825b-00dea530bca2"
     },
     "_id": "01BZTNebtCb4I17ThnlmVh"
+  },
+  {
+    "__type__": "dc51dQDna9IXJpSxcHBzjHe",
+    "_name": "customerManager<CustomEventListener>",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 350
+    },
+    "_enabled": true,
+    "_id": "5d0b9mIDRCNph2+pDYMtfb"
+  },
+  {
+    "__type__": "62744OS5IBCkaA7A9jBKMfq",
+    "_name": "customerManager<CustomerManager>",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 350
+    },
+    "_enabled": true,
+    "customers": [
+      {
+        "__id__": 351
+      },
+      {
+        "__id__": 410
+      }
+    ],
+    "walkTime": 2,
+    "_id": "890im7ErxJaIz6J2xLI4ws"
   },
   {
     "__type__": "cc.SceneGlobals",

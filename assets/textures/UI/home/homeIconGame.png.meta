@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "18ac9cf2-4aa0-4eb5-b4fb-beb6b4dc8398"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "18ac9cf2-4aa0-4eb5-b4fb-beb6b4dc8398@f9941",
+      "displayName": "homeIconGame",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": -0.5,
+        "trimX": 0,
+        "trimY": 1,
+        "width": 54,
+        "height": 93,
+        "rawWidth": 54,
+        "rawHeight": 94,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "18ac9cf2-4aa0-4eb5-b4fb-beb6b4dc8398@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "18ac9cf2-4aa0-4eb5-b4fb-beb6b4dc8398@6c48a"
+    "type": "sprite-frame",
+    "redirect": "18ac9cf2-4aa0-4eb5-b4fb-beb6b4dc8398@f9941"
   }
 }

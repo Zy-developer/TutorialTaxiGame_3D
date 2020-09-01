@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "58edffd1-b554-45a0-bf2f-65627297b69c"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "58edffd1-b554-45a0-bf2f-65627297b69c@f9941",
+      "displayName": "homeBoxGame03",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": -0.5,
+        "trimX": 0,
+        "trimY": 1,
+        "width": 268,
+        "height": 209,
+        "rawWidth": 268,
+        "rawHeight": 210,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "58edffd1-b554-45a0-bf2f-65627297b69c@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "58edffd1-b554-45a0-bf2f-65627297b69c@6c48a"
+    "type": "sprite-frame",
+    "redirect": "58edffd1-b554-45a0-bf2f-65627297b69c@f9941"
   }
 }

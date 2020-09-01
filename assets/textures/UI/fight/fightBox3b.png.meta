@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "c1d5c553-9d57-49d4-ad8d-37ad4461af6a"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "c1d5c553-9d57-49d4-ad8d-37ad4461af6a@f9941",
+      "displayName": "fightBox3b",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 97,
+        "height": 66,
+        "rawWidth": 97,
+        "rawHeight": 66,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "c1d5c553-9d57-49d4-ad8d-37ad4461af6a@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "c1d5c553-9d57-49d4-ad8d-37ad4461af6a@6c48a"
+    "type": "sprite-frame",
+    "redirect": "c1d5c553-9d57-49d4-ad8d-37ad4461af6a@f9941"
   }
 }

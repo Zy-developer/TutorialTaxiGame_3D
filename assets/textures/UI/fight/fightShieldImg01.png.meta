@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "a86e227c-3662-4d57-917b-2228cc3635ac"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "a86e227c-3662-4d57-917b-2228cc3635ac@f9941",
+      "displayName": "fightShieldImg01",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": -0.5,
+        "offsetY": 0.5,
+        "trimX": 1,
+        "trimY": 1,
+        "width": 186,
+        "height": 195,
+        "rawWidth": 189,
+        "rawHeight": 198,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "a86e227c-3662-4d57-917b-2228cc3635ac@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "a86e227c-3662-4d57-917b-2228cc3635ac@6c48a"
+    "type": "sprite-frame",
+    "redirect": "a86e227c-3662-4d57-917b-2228cc3635ac@f9941"
   }
 }

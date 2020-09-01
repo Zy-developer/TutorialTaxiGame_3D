@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "b663b908-ffff-4975-9c0f-711e0d44425b"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "b663b908-ffff-4975-9c0f-711e0d44425b@f9941",
+      "displayName": "fightImgHand",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 98,
+        "height": 119,
+        "rawWidth": 98,
+        "rawHeight": 119,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "b663b908-ffff-4975-9c0f-711e0d44425b@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "b663b908-ffff-4975-9c0f-711e0d44425b@6c48a"
+    "type": "sprite-frame",
+    "redirect": "b663b908-ffff-4975-9c0f-711e0d44425b@f9941"
   }
 }

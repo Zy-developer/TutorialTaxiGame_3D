@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "9070a251-b06f-4dbd-816f-91e03c767d74"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "9070a251-b06f-4dbd-816f-91e03c767d74@f9941",
+      "displayName": "fightBoxGold",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 152,
+        "height": 98,
+        "rawWidth": 152,
+        "rawHeight": 98,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9070a251-b06f-4dbd-816f-91e03c767d74@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "9070a251-b06f-4dbd-816f-91e03c767d74@6c48a"
+    "type": "sprite-frame",
+    "redirect": "9070a251-b06f-4dbd-816f-91e03c767d74@f9941"
   }
 }

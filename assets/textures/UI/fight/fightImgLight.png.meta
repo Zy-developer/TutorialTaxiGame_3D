@@ -31,10 +31,43 @@
         "isUuid": true,
         "imageUuidOrDatabaseUri": "b21e6acf-7542-42e0-b17f-eee0fce41600"
       }
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "b21e6acf-7542-42e0-b17f-eee0fce41600@f9941",
+      "displayName": "fightImgLight",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "ver": "1.0.8",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 482,
+        "height": 482,
+        "rawWidth": 482,
+        "rawHeight": 482,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "b21e6acf-7542-42e0-b17f-eee0fce41600@6c48a",
+        "atlasUuid": ""
+      }
     }
   },
   "userData": {
-    "type": "texture",
-    "redirect": "b21e6acf-7542-42e0-b17f-eee0fce41600@6c48a"
+    "type": "sprite-frame",
+    "redirect": "b21e6acf-7542-42e0-b17f-eee0fce41600@f9941"
   }
 }
