@@ -29,17 +29,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 66
-      },
-      {
         "__id__": 67
       },
       {
         "__id__": 68
+      },
+      {
+        "__id__": 69
       }
     ],
     "_prefab": {
-      "__id__": 69
+      "__id__": 70
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1245,23 +1245,23 @@
         "__id__": 49
       },
       {
-        "__id__": 58
+        "__id__": 59
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 62
-      },
-      {
         "__id__": 63
       },
       {
         "__id__": 64
+      },
+      {
+        "__id__": 65
       }
     ],
     "_prefab": {
-      "__id__": 65
+      "__id__": 66
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1556,7 +1556,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 57
+      "__id__": 58
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1771,7 +1771,11 @@
       "__id__": 49
     },
     "_enabled": true,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 57
+      }
+    ],
     "_interactable": true,
     "_transition": 1,
     "_normalColor": {
@@ -1822,6 +1826,16 @@
     "_id": ""
   },
   {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "",
+    "_componentId": "87798qrJRtBH5el5GQKavKV",
+    "handler": "onClickedReceived",
+    "customEventData": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -1847,14 +1861,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 59
+        "__id__": 60
       },
       {
-        "__id__": 60
+        "__id__": 61
       }
     ],
     "_prefab": {
-      "__id__": 61
+      "__id__": 62
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1889,7 +1903,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 58
+      "__id__": 59
     },
     "_enabled": true,
     "_priority": 0,
@@ -1910,7 +1924,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 58
+      "__id__": 59
     },
     "_enabled": true,
     "_srcBlendFactor": 2,
@@ -2085,6 +2099,50 @@
       "__id__": 1
     },
     "_enabled": true,
+    "currentLevel": {
+      "__id__": 26
+    },
+    "targetLevel": {
+      "__id__": 6
+    },
+    "currentSprite": {
+      "__id__": 29
+    },
+    "targetSprite": {
+      "__id__": 9
+    },
+    "levelUnFinished": {
+      "__uuid__": "8404676f-7b05-4025-b17c-2f32aae797d7@f9941"
+    },
+    "levelFinished": {
+      "__uuid__": "c1d5c553-9d57-49d4-ad8d-37ad4461af6a@f9941"
+    },
+    "orderUnCompeteSF": {
+      "__uuid__": "2e2c2a2f-e9ca-474d-9201-8ea839e29a3c@f9941"
+    },
+    "ordingSF": {
+      "__uuid__": "6a9b1569-2443-4ffb-a678-a7926e1a3efa@f9941"
+    },
+    "orderCompeteSF": {
+      "__uuid__": "6cbfb754-2df2-4a9a-aa3c-3f5ef6f79825@f9941"
+    },
+    "progress": [
+      {
+        "__id__": 13
+      },
+      {
+        "__id__": 17
+      },
+      {
+        "__id__": 21
+      }
+    ],
+    "orderTip": {
+      "__id__": 37
+    },
+    "goldLabel": {
+      "__id__": 61
+    },
     "_id": ""
   },
   {

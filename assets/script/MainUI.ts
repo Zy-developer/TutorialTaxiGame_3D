@@ -6,6 +6,8 @@
  */
 
 import { _decorator, Component, Node } from 'cc';
+import { Constants } from './Constants';
+import { CustomEventListener } from './CustomEventListener';
 const { ccclass, property } = _decorator;
 
 @ccclass('MainUI')
@@ -31,6 +33,10 @@ export class MainUI extends Component {
 
     public hide() {
         
+    }
+
+    public onClickedStart() {
+        CustomEventListener.emit(Constants.EventName.GAME_START);
     }
 
 }

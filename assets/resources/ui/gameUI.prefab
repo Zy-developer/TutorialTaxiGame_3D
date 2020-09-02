@@ -2098,6 +2098,56 @@
       "__id__": 1
     },
     "_enabled": true,
+    "currentLevel": {
+      "__id__": 26
+    },
+    "targetLevel": {
+      "__id__": 6
+    },
+    "currentSprite": {
+      "__id__": 29
+    },
+    "targetSprite": {
+      "__id__": 9
+    },
+    "levelUnFinished": {
+      "__uuid__": "8404676f-7b05-4025-b17c-2f32aae797d7@f9941"
+    },
+    "levelFinished": {
+      "__uuid__": "c1d5c553-9d57-49d4-ad8d-37ad4461af6a@f9941"
+    },
+    "orderUnCompeteSF": {
+      "__uuid__": "2e2c2a2f-e9ca-474d-9201-8ea839e29a3c@f9941"
+    },
+    "ordingSF": {
+      "__uuid__": "6a9b1569-2443-4ffb-a678-a7926e1a3efa@f9941"
+    },
+    "orderCompeteSF": {
+      "__uuid__": "6cbfb754-2df2-4a9a-aa3c-3f5ef6f79825@f9941"
+    },
+    "progress": [
+      {
+        "__id__": 13
+      },
+      {
+        "__id__": 17
+      },
+      {
+        "__id__": 21
+      }
+    ],
+    "avatar": {
+      "__id__": 39
+    },
+    "content": {
+      "__id__": 47
+    },
+    "talkNode": {
+      "__id__": 35
+    },
+    "guideNode": {
+      "__id__": 52
+    },
     "_id": ""
   },
   {
