@@ -67,7 +67,9 @@ export class CustomerManager extends Component {
 
     /** 接客. */
     private onGreetingEvent(position: Vec3, direction: Vec3) {
-        this._currentCustomer = this.customers[Math.floor(Math.random() * this.customers.length)];
+        const index = Constants.randomNumber(0, this.customers.length - 1);
+        this._currentCustomer = this.customers[index];
+        CustomEventListener.emit(Constants.EventName.SHOW_TALK, index + 1);
         this._state = Constants.CustomerState.GREETING;
         this._inTheOrder = true;
         if (!this._currentCustomer) { return; }
@@ -98,6 +100,7 @@ export class CustomerManager extends Component {
 
     /** 送客. */
     private onGoodbydEvent(position: Vec3, direction: Vec3) {
+        CustomEventListener.emit(Constants.EventName.SHOW_TALK, -1);
         this._state = Constants.CustomerState.GOODBYD;
         this._inTheOrder = true;
         if (!this._currentCustomer) { return; }

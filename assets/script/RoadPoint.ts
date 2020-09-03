@@ -7,6 +7,7 @@
  */
 
 import { _decorator, Component, Node, Vec3, Enum, macro } from 'cc';
+import { Constants } from './Constants';
 const { ccclass, property } = _decorator;
 
 /** 路线点类型. */
@@ -145,7 +146,7 @@ export class RoadPoint extends Component {
     }
 
     private scheduleCallback() {
-        const index = Math.floor(Math.random() * this._arrayCars.length);
+        const index = Math.floor(Constants.randomNumber(0, this._arrayCars.length - 1));
         this._callback && this._callback(this, this._arrayCars[index]);
     }
 }

@@ -20,6 +20,8 @@ export class GameMap extends Component {
     @property({ type: [Node], tooltip: "路径点." })
     path: Node[] = [];
 
+    public maxProgress = 2;
+
     start() {
         // Your initialization goes here.
     }

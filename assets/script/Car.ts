@@ -9,6 +9,7 @@ import { _decorator, Component, Node, Vec3, ParticleSystemComponent, BoxCollider
 import { AudioManager } from './AudioManager';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
+import { RunTimeData } from './RunTimeData';
 import { RoadPoint, RoadMoveType, RoadPointType } from './RoadPoint';
 const { ccclass, property } = _decorator;
 
@@ -246,6 +247,7 @@ export class Car extends Component {
                 this._acceleration = 0;
                 this._currentSpeed = .1;
                 CustomEventListener.emit(Constants.EventName.SHOW_COIN, this.node.worldPosition);
+                CustomEventListener.emit(Constants.EventName.GAME_END);
             }
         }
         if (this._currentRoadPoint.nextStation) {
@@ -301,6 +303,7 @@ export class Car extends Component {
     /** 接乘客. */
     private greetingCustomer() {
         this._isInOrder = true;
+        RunTimeData.instance().isTakeOver = false;
         this._currentSpeed = 0;
         this.particle_ges.stop();
         CustomEventListener.emit(Constants.EventName.GREETING, this.node.worldPosition, this._currentRoadPoint.direction);
@@ -309,6 +312,8 @@ export class Car extends Component {
     /** 送乘客. */
     private goodbydCustomer() {
         this._isInOrder = true;
+        RunTimeData.instance().isTakeOver = true;
+        RunTimeData.instance().currentProgress++;
         this._currentSpeed = 0;
         this.particle_ges.stop();
         CustomEventListener.emit(Constants.EventName.GOODBYD, this.node.worldPosition, this._currentRoadPoint.direction);

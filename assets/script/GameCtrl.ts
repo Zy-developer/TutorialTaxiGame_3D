@@ -10,6 +10,7 @@ import { AudioManager } from './AudioManager';
 import { CarManager } from './CarManager';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
+import { RunTimeData } from './RunTimeData';
 import { MapManager } from './MapManager';
 import { UIManager } from './UIManager';
 const { ccclass, property } = _decorator;
@@ -33,9 +34,7 @@ export class GameCtrl extends Component {
     group: Node = null;
 
     onLoad() {
-        this.mapMgr.resetMap();
-        this.carMgr.reset(this.mapMgr.currentPath);
-
+        this.reset();
         const collider = this.group.getComponent(BoxColliderComponent);
         collider.setGroup(Constants.CarGroup.NORMAL);
         collider.setMask(-1);
@@ -84,5 +83,11 @@ export class GameCtrl extends Component {
     private onTouchEnd(event: EventTouch) {
         // console.log("touch end: ", event);
         this.carMgr.controlMoving(false);
+    }
+
+    private reset() {
+        this.mapMgr.resetMap();
+        this.carMgr.reset(this.mapMgr.currentPath);
+        RunTimeData.instance().maxProgress = this.mapMgr.maxProgress;
     }
 }

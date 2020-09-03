@@ -19,6 +19,7 @@ export class MapManager extends Component {
     // serializableDummy = 0;
 
     public currentPath: Node[] = [];
+    public maxProgress = 0;
 
     start() {
         // Your initialization goes here.
@@ -31,5 +32,6 @@ export class MapManager extends Component {
     public resetMap() {
         const currentMap = this.node.children[0].getComponent(GameMap);
         this.currentPath = currentMap.path;
+        this.maxProgress = currentMap.maxProgress;
     }
 }

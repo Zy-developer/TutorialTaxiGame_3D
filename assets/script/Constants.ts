@@ -28,8 +28,14 @@ export class Constants {
         GAME_START: "GAME_START",
         /** 游戏结束. */
         GAME_OVER: "GAME_OVER",
+        /** 到达终点. */
+        GAME_END: "GAME_END",
         /** newLevel. */
         NEW_LEVEL: "NEW_LEVEL",
+        /** 显示对话. */
+        SHOW_TALK: "SHOW_TALK",
+        /** 显示引导. */
+        SHOW_GUIDE: "SHOW_GUIDE",
     };
 
     /** 乘客状态. */
@@ -76,8 +82,9 @@ export class Constants {
 
     /** 乘客对话. */
     public static talkTable = [
-        "请快点。\n我要赶飞机。",
-        "最美的日子\n不是雨天。"
+        "你好，去高崎机场。\n麻烦快一点，我赶飞机。",
+        "师傅，去师大仓山校区，谢谢。",
+        "城关鲤中步行街，谢谢。"
     ];
 
     /** UI页面. */
@@ -86,5 +93,14 @@ export class Constants {
         gameUI: "gameUI",
         resultUI: "resultUI",
     };
+
+    /**
+     * 随机一个整数，取值区间[min, max]
+     * @param min 最小值
+     * @param max 最大值
+     */
+    public static randomNumber(min, max){
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
 
 }

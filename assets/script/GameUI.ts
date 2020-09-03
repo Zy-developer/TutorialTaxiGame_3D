@@ -5,7 +5,10 @@
  * 游戏页UI.
  */
 
-import { _decorator, Component, Node, LabelComponent, SpriteComponent, SpriteFrame } from 'cc';
+import { _decorator, Component, Node, LabelComponent, SpriteComponent, SpriteFrame, loader } from 'cc';
+import { Constants } from './Constants';
+import { CustomEventListener } from './CustomEventListener';
+import { RunTimeData } from './RunTimeData';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameUI')
@@ -59,6 +62,8 @@ export class GameUI extends Component {
     @property({type: Node, tooltip: "引导节点.", displayOrder: 14})
     guideNode: Node = null;
 
+    private _runtimeData: RunTimeData = null;
+
     start () {
         // Your initialization goes here.
     }
@@ -68,11 +73,80 @@ export class GameUI extends Component {
     // }
 
     public show(...args: any[]) {
+        this._runtimeData = RunTimeData.instance();
+        this.refreshUI();
 
+        CustomEventListener.on(Constants.EventName.GREETING, this.onGreetingEvent, this);
+        CustomEventListener.on(Constants.EventName.GOODBYD, this.onGoodbyeEvent, this);
+        CustomEventListener.on(Constants.EventName.GAME_END, this.onGameEnd, this);
+        CustomEventListener.on(Constants.EventName.SHOW_TALK, this.showTalkingEvent, this);
+        CustomEventListener.on(Constants.EventName.SHOW_GUIDE, this.showGuideEvent, this);
     }
 
     public hide() {
+        CustomEventListener.off(Constants.EventName.GREETING, this.onGreetingEvent, this);
+        CustomEventListener.off(Constants.EventName.GOODBYD, this.onGoodbyeEvent, this);
+        CustomEventListener.off(Constants.EventName.GAME_END, this.onGameEnd, this);
+        CustomEventListener.off(Constants.EventName.SHOW_TALK, this.showTalkingEvent, this);
+        CustomEventListener.off(Constants.EventName.SHOW_GUIDE, this.showGuideEvent, this);
+    }
+
+    private onGreetingEvent() {
+        const progress = this.progress[this._runtimeData.maxProgress - 1 - this._runtimeData.currentProgress];
+        progress.spriteFrame = this.ordingSF;
+    }
+
+    private onGoodbyeEvent() {
+        const progress = this.progress[this._runtimeData.maxProgress - this._runtimeData.currentProgress];
+        progress.spriteFrame = this.orderCompeteSF;
+    }
+
+    private onGameEnd() {
+        if (this._runtimeData.currentProgress === this._runtimeData.maxProgress) {
+            this.targetSprite.spriteFrame = this.levelFinished;
+        }
+    }
+
+    private showTalkingEvent(customerID?: number) {
+        if (customerID >= 0) {
+            const content = Constants.talkTable[Constants.randomNumber(0, Constants.talkTable.length - 1)];
+            this.content.string = content;
+            this.talkNode.active = true;
+            loader.loadRes(`head/head${customerID}/spriteFrame`, SpriteFrame, (err, spf: SpriteFrame) => {
+                this.scheduleOnce(() => {
+                    this.talkNode.active = false;
+                }, 1);
+                if (err || !spf) { return console.log(`===> load head/head${customerID}/spriteFrame err: ${err}, spf: `, spf); }
+                this.avatar.spriteFrame = spf;
+            });
+        } else {
+            this.content.string = "谢谢师傅，再见。";
+            this.talkNode.active = true;
+            this.scheduleOnce(() => {
+                this.avatar.spriteFrame = null;
+                this.talkNode.active = false;
+            }, 1);
+        }
+    }
+
+    private showGuideEvent() {
         
+    }
+
+    private refreshUI() {
+        for (let i = 0; i < this.progress.length; ++i) {
+            const progress = this.progress[i];
+            if (i >= this._runtimeData.maxProgress) {
+                progress.node.active = false;
+            } else {
+                progress.node.active = true;
+                progress.spriteFrame = this.orderUnCompeteSF;
+            }
+        }
+        this.currentLevel.string = "1";
+        this.targetLevel.string = "2";
+        this.currentSprite.spriteFrame = this.levelFinished;
+        this.targetSprite.spriteFrame = this.levelUnFinished;
     }
     
 }
