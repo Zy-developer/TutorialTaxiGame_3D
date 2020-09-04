@@ -60,6 +60,7 @@ export class CarManager extends Component {
     /** 控制运动. */
     public controlMoving(isRuning: boolean = true) {
         if (isRuning) {
+            CustomEventListener.emit(Constants.EventName.SHOW_GUIDE, false);
             this.mainCar.startRuning();
         } else {
             this.mainCar.stopRuning();

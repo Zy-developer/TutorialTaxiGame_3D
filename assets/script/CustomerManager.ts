@@ -58,6 +58,7 @@ export class CustomerManager extends Component {
                 this._currentCustomer = null;
             }
             CustomEventListener.emit(Constants.EventName.FININSHED_WALK);
+            CustomEventListener.emit(Constants.EventName.SHOW_GUIDE, true);
             if (this._state === Constants.CustomerState.GREETING) {
                 AudioManager.playSound(Constants.AudioSource.INCAR);
             }

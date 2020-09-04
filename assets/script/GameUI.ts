@@ -5,7 +5,7 @@
  * 游戏页UI.
  */
 
-import { _decorator, Component, Node, LabelComponent, SpriteComponent, SpriteFrame, loader } from 'cc';
+import { _decorator, Component, Node, LabelComponent, SpriteComponent, SpriteFrame, loader, AnimationComponent } from 'cc';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
 import { RunTimeData } from './RunTimeData';
@@ -59,8 +59,8 @@ export class GameUI extends Component {
     @property({type: Node, tooltip: "对话节点.", displayOrder: 13})
     talkNode: Node = null;
 
-    @property({type: Node, tooltip: "引导节点.", displayOrder: 14})
-    guideNode: Node = null;
+    @property({type: AnimationComponent, tooltip: "引导动画.", displayOrder: 14})
+    guideAni: AnimationComponent = null;
 
     private _runtimeData: RunTimeData = null;
 
@@ -75,6 +75,7 @@ export class GameUI extends Component {
     public show(...args: any[]) {
         this._runtimeData = RunTimeData.instance();
         this.refreshUI();
+        this.showGuideEvent(true);
 
         CustomEventListener.on(Constants.EventName.GREETING, this.onGreetingEvent, this);
         CustomEventListener.on(Constants.EventName.GOODBYD, this.onGoodbyeEvent, this);
@@ -115,7 +116,7 @@ export class GameUI extends Component {
             loader.loadRes(`head/head${customerID}/spriteFrame`, SpriteFrame, (err, spf: SpriteFrame) => {
                 this.scheduleOnce(() => {
                     this.talkNode.active = false;
-                }, 1);
+                }, 3);
                 if (err || !spf) { return console.log(`===> load head/head${customerID}/spriteFrame err: ${err}, spf: `, spf); }
                 this.avatar.spriteFrame = spf;
             });
@@ -125,12 +126,17 @@ export class GameUI extends Component {
             this.scheduleOnce(() => {
                 this.avatar.spriteFrame = null;
                 this.talkNode.active = false;
-            }, 1);
+            }, 3);
         }
     }
 
-    private showGuideEvent() {
-        
+    private showGuideEvent(isShow: boolean) {
+        this.guideAni.node.active = isShow;
+        if (isShow) {
+            this.guideAni.play("showGuide");
+        } else {
+            this.guideAni.stop();
+        }
     }
 
     private refreshUI() {

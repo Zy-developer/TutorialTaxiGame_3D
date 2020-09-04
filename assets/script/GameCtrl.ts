@@ -71,6 +71,7 @@ export class GameCtrl extends Component {
     private newLevel() {
         UIManager.hideDialog(Constants.UIPage.resultUI);
         UIManager.showDialog(Constants.UIPage.mainUI);
+        this.reset();
     }
 
     /** 触摸开始. */
@@ -86,6 +87,7 @@ export class GameCtrl extends Component {
     }
 
     private reset() {
+        RunTimeData.reset();
         this.mapMgr.resetMap();
         this.carMgr.reset(this.mapMgr.currentPath);
         RunTimeData.instance().maxProgress = this.mapMgr.maxProgress;

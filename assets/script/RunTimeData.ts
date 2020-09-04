@@ -20,6 +20,13 @@ export class RunTimeData {
         return this._instance;
     }
 
+    public static reset() {
+        if (!this._instance) { return; }
+        this._instance.currentProgress = 0;
+        this._instance.maxProgress = 0;
+        this._instance.isTakeOver = true;
+    }
+
     public currentProgress = 0;
     public maxProgress = 0;
     public isTakeOver = true;

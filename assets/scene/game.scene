@@ -2311,8 +2311,8 @@
     "talkNode": {
       "__id__": 40
     },
-    "guideNode": {
-      "__id__": 57
+    "guideAni": {
+      "__id__": 71
     },
     "_id": "5c1fod3NRB/KU96nBLnuJl"
   },

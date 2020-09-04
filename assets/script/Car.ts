@@ -359,6 +359,8 @@ export class Car extends Component {
 
     /** 游戏结束. */
     private gameOver() {
+        this._isMoving = false;
+        this._currentSpeed = 0;
         CustomEventListener.emit(Constants.EventName.GAME_OVER);
     }
 

@@ -6,6 +6,9 @@
  */
 
 import { _decorator, Component, Node, LabelComponent, SpriteComponent, SpriteFrame } from 'cc';
+import { Constants } from './Constants';
+import { CustomEventListener } from './CustomEventListener';
+import { RunTimeData } from './RunTimeData';
 const { ccclass, property } = _decorator;
 
 @ccclass('ResultUI')
@@ -62,7 +65,25 @@ export class ResultUI extends Component {
     // }
 
     public show(...args: any[]) {
-
+        const data = RunTimeData.instance();
+        let index = 0;
+        for (let i = 0; i < this.progress.length; ++i) {
+            const progress = this.progress[i];
+            if (i >= data.maxProgress) {
+                progress.node.active = false;
+            } else {
+                progress.node.active = true;
+                index = data.maxProgress - 1 - i;
+                if (index >= data.currentProgress) {
+                    progress.spriteFrame = index === data.currentProgress && !data.isTakeOver ? this.ordingSF : this.orderUnCompeteSF;
+                } else {
+                    progress.spriteFrame = this.orderCompeteSF;
+                }
+            }
+        }
+        this.currentSprite.spriteFrame = this.levelFinished;
+        this.targetSprite.spriteFrame = data.currentProgress === data.maxProgress ? this.levelFinished : this.levelUnFinished;
+        this.orderTip.string = `你完成了${data.currentProgress}个订单`;
     }
 
     public hide() {
@@ -71,7 +92,7 @@ export class ResultUI extends Component {
 
     /** 点击领取. */
     public onClickedReceived() {
-
+        CustomEventListener.emit(Constants.EventName.NEW_LEVEL);
     }
     
 }
