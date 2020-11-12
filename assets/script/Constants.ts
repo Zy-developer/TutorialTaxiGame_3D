@@ -53,7 +53,7 @@ export class Constants {
         BACKGROUND: "background",
         /** 按钮点击. */
         CLICK: "click",
-        /**. */
+        /** 撞车. */
         CRASH: "crash",
         /** 金币. */
         GETMONEY: "getMoney",
@@ -65,9 +65,9 @@ export class Constants {
         START: "start",
         /** 刹车. */
         STOP: "stop",
-        /** . */
+        /** 喇叭1. */
         TOOTING1: "tooting1",
-        /** . */
+        /** 喇叭2. */
         TOOTING2: "tooting2",
         /** 胜利. */
         WIN: "win",

@@ -5,12 +5,13 @@
  * 小车管理.
  */
 
-import { _decorator, Component, Node, loader, Prefab, instantiate, Vec3 } from 'cc';
+import { _decorator, Component, Node, loader, Prefab, instantiate, Vec3, macro } from 'cc';
 import { Car } from './Car';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
 import { PoolManager } from './PoolManager';
 import { RoadPoint } from './RoadPoint';
+import { RunTimeData } from './RunTimeData';
 const { ccclass, property } = _decorator;
 
 @ccclass('CarManager')
@@ -41,6 +42,7 @@ export class CarManager extends Component {
     start() {
         // Your initialization goes here.
 
+        CustomEventListener.on(Constants.EventName.GAME_START, this.gameStart, this);
         CustomEventListener.on(Constants.EventName.GAME_OVER, this.gameOver, this);
     }
 
@@ -54,7 +56,6 @@ export class CarManager extends Component {
         this.recycleAllAICar();
         this.createMainCar(points[0]);
         this._currentPath = points;
-        this.startSchedule();
     }
 
     /** 控制运动. */
@@ -88,6 +89,23 @@ export class CarManager extends Component {
         }
     }
 
+    private checkIsCloser() {
+        const mainCarPos = this.mainCar.node.worldPosition;
+        for (let i = 0, aiCar: Car; i < this._aiCars.length; i++) {
+            aiCar = this._aiCars[i];
+            const pos = aiCar.node.worldPosition;
+            if (Math.abs(pos.x - mainCarPos.x) <= 2 && Math.abs(pos.z - mainCarPos.z) <= 2) {
+                this.mainCar.tooting();
+            }
+        }
+    }
+
+    private gameStart() {
+        this.mainCar.startWithMinSpeed();
+        this.startSchedule();
+        this.schedule(this.checkIsCloser, 0.2, macro.REPEAT_FOREVER);
+    }
+
     private gameOver() {
         this.stopSchedule();
         /**
@@ -101,6 +119,7 @@ export class CarManager extends Component {
             const car = this._aiCars[i];
             car.stopImmediately();
         }
+        this.unschedule(this.checkIsCloser);
     }
 
     private createEnemy(roadPoint: RoadPoint, carId: string) {

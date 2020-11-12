@@ -97,6 +97,7 @@ export class CustomerManager extends Component {
 
         const aniCmp = this._currentCustomer.getComponent(AnimationComponent);
         aniCmp.play("walk");
+        AudioManager.playSound(Constants.AudioSource.NEWORDER);
     }
 
     /** 送客. */

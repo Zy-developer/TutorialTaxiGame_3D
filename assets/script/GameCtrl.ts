@@ -90,6 +90,7 @@ export class GameCtrl extends Component {
         RunTimeData.reset();
         this.mapMgr.resetMap();
         this.carMgr.reset(this.mapMgr.currentPath);
+        RunTimeData.instance().currentProgress = 0;
         RunTimeData.instance().maxProgress = this.mapMgr.maxProgress;
     }
 }

@@ -5,13 +5,20 @@
  * 小车.
  */
 
-import { _decorator, Component, Node, Vec3, ParticleSystemComponent, BoxColliderComponent, RigidBodyComponent, ICollisionEvent } from 'cc';
+import { _decorator, Component, Node, Vec3, ParticleSystemComponent, BoxColliderComponent, RigidBodyComponent, ICollisionEvent, CurveRange } from 'cc';
 import { AudioManager } from './AudioManager';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
 import { RunTimeData } from './RunTimeData';
 import { RoadPoint, RoadMoveType, RoadPointType } from './RoadPoint';
 const { ccclass, property } = _decorator;
+
+enum RunState {
+    NORMAL = 0,
+    INORDER = 1,
+    CRASH = 2,
+    OVER = 3,
+}
 
 @ccclass('Car')
 export class Car extends Component {
@@ -24,6 +31,12 @@ export class Car extends Component {
 
     @property({type: ParticleSystemComponent, tooltip: "汽车尾气粒子."})
     particle_ges: ParticleSystemComponent = null;
+
+    @property({tooltip: "最大的速度."})
+    maxSpeed = 0.2;
+
+    @property({tooltip: "最小的速度."})
+    minSpeed = 0.02;
 
     private static tempVec: Vec3 = new Vec3();
 
@@ -50,8 +63,6 @@ export class Car extends Component {
     private _rotMeasure: number = 0;
     /** 玩家小车标记. */
     private _isMain: boolean = false;
-    /** 是否订单中状态. */
-    private _isInOrder: boolean = false;
     /** 加速度. */
     private _acceleration: number = .1;
     /** 是否刹车状态. */
@@ -61,17 +72,24 @@ export class Car extends Component {
     private _overCallback: Function = null;
     private _camera: Node = null;
 
-    public maxSpeed: number = 1;
+    private _maxSpeed: number = 1;
+    private _minSpeed: number = 0;
+    private _tootingCoolTime = 0;
+    private _tootingTotalCool = 5;
+    private _runState: RunState = RunState.NORMAL;
 
     start() {
         // Your initialization goes here.
 
         CustomEventListener.on(Constants.EventName.FININSHED_WALK, this.onWalkFinished, this);
+        this._minSpeed = this.minSpeed;
+        this._maxSpeed = this.maxSpeed;
     }
 
     update(deltaTime: number) {
         // Your update function goes here.
-        if (!this._isMoving || this._isInOrder) {
+        this._tootingCoolTime = this._tootingCoolTime > deltaTime ? this._tootingCoolTime - deltaTime : 0;
+        if ((!this._isMoving && this._currentSpeed <= 0) || this._runState === RunState.INORDER || this._runState === RunState.CRASH) {
             return;
         }
         // 更新移动.
@@ -79,12 +97,12 @@ export class Car extends Component {
         
         if (this._isMain) {
             this._currentSpeed += this._acceleration * deltaTime;
-            if (this._currentSpeed > .5) {
-                this._currentSpeed = .5;
+            if (this._currentSpeed > this._maxSpeed) {
+                this._currentSpeed = this._maxSpeed;
             }
         }
         if (this._currentSpeed <= .001) {
-            this._isMoving = false;
+            this._currentSpeed = this.minSpeed;
             if (this._isBraking) {
                 this._isBraking = false;
                 CustomEventListener.emit(Constants.EventName.END_BRAKING);
@@ -177,6 +195,9 @@ export class Car extends Component {
                 this.node.eulerAngles = new Vec3(0, 90, 0);
             }
         }
+        this._runState = RunState.NORMAL;
+        this._currentSpeed = 0;
+        this._isMoving = false;
         const collider = this.node.getComponent(BoxColliderComponent);
         if (this._isMain) {
             if (this.particle_ges) {
@@ -210,15 +231,24 @@ export class Car extends Component {
 
     /** 开始运动. */
     public startRuning() {
+        if (this._runState !== RunState.NORMAL) return;
+        this._minSpeed = this.minSpeed;
+        this._maxSpeed = this.maxSpeed;
         if (this._currentRoadPoint) {
             this._isMoving = true;
             this._touchState = true;
+            // this._currentSpeed = 0;
             this._acceleration = .2;
+        }
+        if (this._isBraking) {
+            CustomEventListener.emit(Constants.EventName.END_BRAKING);
+            this._isBraking = false;
         }
     }
 
     /** 停止运动. */
     public stopRuning() {
+        if (this._runState !== RunState.NORMAL) return;
         this._acceleration -= .3;
         this._isMoving = false;
         this._touchState = false;
@@ -234,6 +264,19 @@ export class Car extends Component {
     public stopImmediately() {
         this._isMain = false;
         this._currentSpeed = 0;
+    }
+
+    public tooting() {
+        if (this._tootingCoolTime > 0) return;
+        this._tootingCoolTime = this._tootingTotalCool;
+        const name = Math.floor(Math.random() * 2) < 1 ? Constants.AudioSource.TOOTING1 : Constants.AudioSource.TOOTING2;
+        AudioManager.playSound(name);
+    }
+
+    public startWithMinSpeed() {
+        this._currentSpeed = this.minSpeed;
+        this._isMoving = true;
+        this._maxSpeed = this._minSpeed;
     }
 
     /** 到站. */
@@ -263,12 +306,18 @@ export class Car extends Component {
                     this.goodbydCustomer();
                 } else if (this._currentRoadPoint.pointType === RoadPointType.END) {
                     AudioManager.playSound(Constants.AudioSource.WIN);
+                    this._runState = RunState.OVER;
+                    this._minSpeed = this._maxSpeed = 0.2;
+                    this._currentSpeed = this._minSpeed;
+                    this._acceleration = 0;
+                    CustomEventListener.emit(Constants.EventName.GAME_OVER);
                 }
             }
             this.setCurveData();
         } else {
             this._isMoving = false;
             this._currentRoadPoint = null;
+            this._currentSpeed = 0;
             this._overCallback && this._overCallback(this);
             this._overCallback = null;
             if (this._isMain) {
@@ -289,8 +338,9 @@ export class Car extends Component {
         const self = event.selfCollider, selfBody = this.getComponent(RigidBodyComponent);
         self.addMask(Constants.CarGroup.NORMAL);
         selfBody.useGravity = true;
-
-        this.gameOver();
+        this._runState = RunState.CRASH;
+        AudioManager.playSound(Constants.AudioSource.CRASH);
+        CustomEventListener.emit(Constants.EventName.GAME_OVER);
     }
 
     private resetPhysical() {
@@ -302,31 +352,31 @@ export class Car extends Component {
 
     /** 接乘客. */
     private greetingCustomer() {
-        this._isInOrder = true;
         RunTimeData.instance().isTakeOver = false;
         this._currentSpeed = 0;
         this.particle_ges.stop();
         CustomEventListener.emit(Constants.EventName.GREETING, this.node.worldPosition, this._currentRoadPoint.direction);
+        this._runState = RunState.INORDER;
     }
 
     /** 送乘客. */
     private goodbydCustomer() {
-        this._isInOrder = true;
         RunTimeData.instance().isTakeOver = true;
         RunTimeData.instance().currentProgress++;
         this._currentSpeed = 0;
         this.particle_ges.stop();
         CustomEventListener.emit(Constants.EventName.GOODBYD, this.node.worldPosition, this._currentRoadPoint.direction);
         CustomEventListener.emit(Constants.EventName.SHOW_COIN, this.node.worldPosition);
+        this._runState = RunState.INORDER;
     }
 
     /** 乘客走路结束. */
     private async onWalkFinished() {
-        this._isInOrder = false;
         this._isMoving = this._touchState;
-        this._currentSpeed = .1;
+        if (this._touchState) this._currentSpeed = this._minSpeed;
         this.particle_ges && this.particle_ges.play();
         // console.log(`===> walk finished isInOrder: ${this._isInOrder}, isMoving: ${this._isMoving}, touchState: ${this._touchState}.`, );
+        this._runState = RunState.NORMAL;
     }
 
     /** 设置拐弯数据. */
@@ -355,13 +405,6 @@ export class Car extends Component {
             let radiu = Car.tempVec.length();
             this._rotMeasure = 90 / (Math.PI * radiu / 2);
         }
-    }
-
-    /** 游戏结束. */
-    private gameOver() {
-        this._isMoving = false;
-        this._currentSpeed = 0;
-        CustomEventListener.emit(Constants.EventName.GAME_OVER);
     }
 
     /** 角度转换为正值. */
