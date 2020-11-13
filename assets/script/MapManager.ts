@@ -7,7 +7,7 @@
 
 import { _decorator, Component, Node } from 'cc';
 import { GameMap } from './GameMap';
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('MapManager')
 export class MapManager extends Component {

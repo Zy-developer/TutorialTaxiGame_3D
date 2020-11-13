@@ -5,8 +5,8 @@
  * UI管理.
  */
 
-import { _decorator, Component, Node, find, loader, Prefab, instantiate } from 'cc';
-const { ccclass, property } = _decorator;
+import { _decorator, Node, find, loader, Prefab, instantiate } from 'cc';
+const { ccclass } = _decorator;
 
 @ccclass('UIManager')
 export class UIManager {

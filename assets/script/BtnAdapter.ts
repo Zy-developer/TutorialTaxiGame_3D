@@ -5,7 +5,7 @@
  * 按钮适配器.
  */
 
-import { _decorator, Component, Node, ButtonComponent } from 'cc';
+import { _decorator, Component, ButtonComponent } from 'cc';
 import { AudioManager } from './AudioManager';
 const { ccclass, property } = _decorator;
 

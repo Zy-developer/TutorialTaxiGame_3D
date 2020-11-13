@@ -5,7 +5,7 @@
  * 乘客管理.
  */
 
-import { _decorator, Component, Node, Vec3, math, AnimationComponent } from 'cc';
+import { _decorator, Component, Node, Vec3, AnimationComponent } from 'cc';
 import { AudioManager } from './AudioManager';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';

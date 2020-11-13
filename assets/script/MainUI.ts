@@ -5,10 +5,10 @@
  * 主页UI.
  */
 
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component } from 'cc';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('MainUI')
 export class MainUI extends Component {

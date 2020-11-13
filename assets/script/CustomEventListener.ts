@@ -5,7 +5,7 @@
  * 自定义事件监听.
  */
 
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component } from 'cc';
 const { ccclass, property } = _decorator;
 
 /** 事件数据. */

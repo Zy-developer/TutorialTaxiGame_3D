@@ -5,13 +5,12 @@
  * 小车管理.
  */
 
-import { _decorator, Component, Node, loader, Prefab, instantiate, Vec3, macro } from 'cc';
+import { _decorator, Component, Node, loader, Prefab, Vec3, macro } from 'cc';
 import { Car } from './Car';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
 import { PoolManager } from './PoolManager';
 import { RoadPoint } from './RoadPoint';
-import { RunTimeData } from './RunTimeData';
 const { ccclass, property } = _decorator;
 
 @ccclass('CarManager')

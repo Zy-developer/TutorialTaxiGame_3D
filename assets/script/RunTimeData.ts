@@ -5,8 +5,8 @@
  * 游戏数据.
  */
 
-import { _decorator, Component, Node } from 'cc';
-const { ccclass, property } = _decorator;
+import { _decorator } from 'cc';
+const { ccclass } = _decorator;
 
 @ccclass('RunTimeData')
 export class RunTimeData {

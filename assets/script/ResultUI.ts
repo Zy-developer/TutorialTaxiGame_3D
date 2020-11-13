@@ -5,7 +5,7 @@
  * 结算页UI.
  */
 
-import { _decorator, Component, Node, LabelComponent, SpriteComponent, SpriteFrame } from 'cc';
+import { _decorator, Component, LabelComponent, SpriteComponent, SpriteFrame } from 'cc';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
 import { RunTimeData } from './RunTimeData';

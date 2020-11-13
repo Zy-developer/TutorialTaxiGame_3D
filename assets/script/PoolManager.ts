@@ -5,8 +5,8 @@
  * 节点池管理.
  */
 
-import { _decorator, Component, Node, Prefab, instantiate } from 'cc';
-const { ccclass, property } = _decorator;
+import { _decorator, Node, Prefab, instantiate } from 'cc';
+const { ccclass } = _decorator;
 
 @ccclass('PoolManager')
 export class PoolManager {

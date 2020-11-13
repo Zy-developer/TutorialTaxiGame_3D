@@ -6,7 +6,7 @@
  */
 
 import { _decorator, loader, AudioClip } from 'cc';
-const { ccclass, property } = _decorator;
+const { ccclass } = _decorator;
 
 @ccclass('AudioManager')
 export class AudioManager {
