@@ -75,16 +75,20 @@ export class CarManager extends Component {
     private startSchedule() {
         for (let i = 1, node: Node, roadPoint: RoadPoint; i < this._currentPath.length; ++i) {
             node = this._currentPath[i];
-            roadPoint = node.getComponent(RoadPoint);
-            roadPoint.startSchedule(this.createEnemy.bind(this));
+            if (node.components) {
+                roadPoint = node.getComponent(RoadPoint);
+                roadPoint.startSchedule(this.createEnemy.bind(this));
+            }
         }
     }
 
     private stopSchedule() {
         for (let i = 1, node: Node, roadPoint: RoadPoint; i < this._currentPath.length; ++i) {
             node = this._currentPath[i];
-            roadPoint = node.getComponent(RoadPoint);
-            roadPoint.stopSchedule();
+            if (node.components) {
+                roadPoint = node.getComponent(RoadPoint);
+                roadPoint.stopSchedule();
+            }
         }
     }
 
@@ -123,6 +127,7 @@ export class CarManager extends Component {
 
     private createEnemy(roadPoint: RoadPoint, carId: string) {
         const self = this;
+        if (!carId) carId = "202";
         loader.loadRes(`car/car${carId}`, Prefab, (err, prefab: Prefab) => {
             if (err || !prefab) { return console.warn(`===> load car/car${carId} error: ${err}, prefab: `, prefab); }
             const node = PoolManager.getNode(prefab, self.node);

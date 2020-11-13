@@ -21,6 +21,8 @@ export class MapManager extends Component {
     public currentPath: Node[] = [];
     public maxProgress = 0;
 
+    private _curMap: Node = null;
+
     start() {
         // Your initialization goes here.
     }
@@ -30,8 +32,14 @@ export class MapManager extends Component {
     // }
 
     public resetMap() {
-        const currentMap = this.node.children[0].getComponent(GameMap);
+        this._curMap = this.node.children[0];
+        const currentMap = this._curMap.getComponent(GameMap);
         this.currentPath = currentMap.path;
         this.maxProgress = currentMap.maxProgress;
+    }
+
+    public recycle() {
+        this._curMap && this._curMap.destroy();
+        this._curMap = null;
     }
 }

@@ -36,6 +36,10 @@ export class Constants {
         SHOW_TALK: "SHOW_TALK",
         /** 显示引导. */
         SHOW_GUIDE: "SHOW_GUIDE",
+        /** 更新进度. */
+        UPDATE_PROGRESS: "UPDATE_PROGRESS",
+        /** 更新进度. */
+        FINISH_PROGRESS: "FINISH_PROGRESS",
     };
 
     /** 乘客状态. */

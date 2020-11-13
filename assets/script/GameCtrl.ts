@@ -5,7 +5,7 @@
  * 游戏控制.
  */
 
-import { _decorator, Component, Node, EventTouch, BoxColliderComponent } from 'cc';
+import { _decorator, Component, Node, EventTouch, BoxColliderComponent, loader, Prefab, instantiate } from 'cc';
 import { AudioManager } from './AudioManager';
 import { CarManager } from './CarManager';
 import { Constants } from './Constants';
@@ -13,6 +13,7 @@ import { CustomEventListener } from './CustomEventListener';
 import { RunTimeData } from './RunTimeData';
 import { MapManager } from './MapManager';
 import { UIManager } from './UIManager';
+import { LoadingUI } from './LoadingUI';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameCtrl')
@@ -30,11 +31,17 @@ export class GameCtrl extends Component {
     @property({ type: CarManager, tooltip: "小车管理.", displayOrder: 2 })
     carMgr: CarManager = null;
 
+    @property({ type: LoadingUI, tooltip: "加载页UI.", displayOrder: 3 })
+    loadingUI: LoadingUI = null;
+
     @property({type: Node, tooltip: "地板."})
     group: Node = null;
 
+    private _progress: number = 5;
+
     onLoad() {
-        this.reset();
+        this.loadingUI.show();
+        this.loadMap(1);
         const collider = this.group.getComponent(BoxColliderComponent);
         collider.setGroup(Constants.CarGroup.NORMAL);
         collider.setMask(-1);
@@ -51,7 +58,7 @@ export class GameCtrl extends Component {
 
         AudioManager.playMusic(Constants.AudioSource.BACKGROUND);
 
-        UIManager.showDialog(Constants.UIPage.mainUI);
+        // UIManager.showDialog(Constants.UIPage.mainUI);
     }
 
     // update (deltaTime: number) {
@@ -71,7 +78,8 @@ export class GameCtrl extends Component {
     private newLevel() {
         UIManager.hideDialog(Constants.UIPage.resultUI);
         UIManager.showDialog(Constants.UIPage.mainUI);
-        this.reset();
+        this.mapMgr.recycle();
+        this.loadMap(1);
     }
 
     /** 触摸开始. */
@@ -93,4 +101,37 @@ export class GameCtrl extends Component {
         RunTimeData.instance().currentProgress = 0;
         RunTimeData.instance().maxProgress = this.mapMgr.maxProgress;
     }
+
+    private loadMap(level: number, callback?: Function) {
+        let map = "map/map";
+        if (level >= 100) {
+            map += `${level}`;
+        } else if (level >= 10) {
+            map += `1${level}`;
+        } else {
+            map += `10${level}`;
+        }
+        map = "map/map101";
+        this._progress = 5;
+        this.scheduleOnce(this.loadingSchedule, 0.2);
+        loader.loadRes(map, Prefab, (err, prefab: Prefab) => {
+            if (err || !prefab) { return console.warn(err); }
+            const mapNode = instantiate(prefab);
+            mapNode.parent = this.mapMgr.node;
+            this.reset();
+            this._progress = 0;
+            callback && callback();
+            callback = null;
+            CustomEventListener.emit(Constants.EventName.FINISH_PROGRESS);
+            UIManager.showDialog(Constants.UIPage.mainUI);
+        });
+    }
+
+    private loadingSchedule() {
+        if (this._progress <= 0) return;
+        CustomEventListener.emit(Constants.EventName.UPDATE_PROGRESS, 40 / 5);
+        this._progress--;
+        this.scheduleOnce(this.loadingSchedule, 0.2);
+    }
+
 }

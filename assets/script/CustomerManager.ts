@@ -24,7 +24,7 @@ export class CustomerManager extends Component {
     customers: Node[] = [];
 
     @property({tooltip: "移动速度."})
-    walkTime: number = 2;
+    walkTime: number = 0.2;
 
     private static _tempVec: Vec3 = new Vec3();
 

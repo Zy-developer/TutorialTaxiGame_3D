@@ -109,13 +109,15 @@ export class Car extends Component {
             }
         }
 
-        switch (this._currentRoadPoint.moveType) {
-            case RoadMoveType.LINE: // 直线.
-                this.updateLine();
-                break;
-            case RoadMoveType.CURVE: // 转弯.
-                this.updateCurve();
-                break;
+        if (this._currentRoadPoint) {
+            switch (this._currentRoadPoint.moveType) {
+                case RoadMoveType.LINE: // 直线.
+                    this.updateLine();
+                    break;
+                case RoadMoveType.CURVE: // 转弯.
+                    this.updateCurve();
+                    break;
+            }
         }
         this.node.worldPosition = this._offset;
         Vec3.subtract(Car.tempVec, this._pointB, this._offset);
@@ -283,7 +285,7 @@ export class Car extends Component {
     private arrivalStation() {
         // console.log("=== 到达站点.", this._currentRoadPoint.nextStation);
         this._pointA = this._pointB;
-        if (this._currentRoadPoint.nextStation) {
+        if (this._currentRoadPoint && this._currentRoadPoint.nextStation) {
             this._currentRoadPoint = this._currentRoadPoint.nextStation.getComponent(RoadPoint);
             // console.log("nextStation: ", this._currentRoadPoint.nextStation);
             if (this._currentRoadPoint.pointType === RoadPointType.END) {
@@ -293,7 +295,7 @@ export class Car extends Component {
                 CustomEventListener.emit(Constants.EventName.GAME_END);
             }
         }
-        if (this._currentRoadPoint.nextStation) {
+        if (this._currentRoadPoint && this._currentRoadPoint.nextStation) {
             this._pointB = this._currentRoadPoint.nextStation.worldPosition;
             if (this._isMain) {
                 if (this._isBraking) {
