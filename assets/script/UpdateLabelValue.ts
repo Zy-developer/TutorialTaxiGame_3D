@@ -32,11 +32,10 @@ export class UpdateLabelValue extends LabelComponent {
         if (!this._isPlaying) return;
         if (this._currTime < this._changeTime) {
             this._currTime += dt;
-            const targetValue = this._startValue + Math.floor((this._currTime / this._changeTime) + this._diffValue);
-            this.string = `${targetValue}`;
+            const targetValue = this._startValue + Math.floor((this._currTime / this._changeTime) * this._diffValue);
+            this.string = `${targetValue > 100 ? 100 : targetValue}`;
             return;
         }
-        this.string = `${this._endValue}`;
         this._isPlaying = false;
     }
 

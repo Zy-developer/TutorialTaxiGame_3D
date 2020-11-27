@@ -1,20 +1,36 @@
+# Command line instructions
 
-### …or create a new repository on the command line.
-
+## Git global setup
 ```
-git init
+git config --global user.name "曾煜"
+git config --global user.email "958255130@qq.com"
+```
+
+## Create a new repository
+```
+git clone git@git.feigo.fun:cocos/FLTankBattle.git
+cd FLTankBattle
+touch README.md
 git add README.md
-git commit -m "first commit"
-git branch -M master
-git remote add origin https://github.com/Zy-developer/TutorialTaxiGame_3D.git
+git commit -m "add README"
 git push -u origin master
 ```
 
-### …or push an existing repository from the command line.
-
+## Existing folder
 ```
-git remote add origin https://github.com/Zy-developer/TutorialTaxiGame_3D.git
-git branch -M master
+cd existing_folder
+git init
+git remote add origin git@git.feigo.fun:cocos/FLTankBattle.git
+git add .
+git commit -m "Initial commit"
 git push -u origin master
 ```
 
+## Existing Git repository
+```
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin git@git.feigo.fun:cocos/FLTankBattle.git
+git push -u origin --all
+git push -u origin --tags
+```

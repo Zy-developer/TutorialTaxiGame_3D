@@ -10,10 +10,11 @@ import { AudioManager } from './AudioManager';
 import { CarManager } from './CarManager';
 import { Constants } from './Constants';
 import { CustomEventListener } from './CustomEventListener';
-import { RunTimeData } from './RunTimeData';
+import { PlayerData, RunTimeData } from './RunTimeData';
 import { MapManager } from './MapManager';
 import { UIManager } from './UIManager';
 import { LoadingUI } from './LoadingUI';
+import { Configuration } from './Configuration';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameCtrl')
@@ -40,6 +41,8 @@ export class GameCtrl extends Component {
     private _progress: number = 5;
 
     onLoad() {
+        Configuration.instance().init();
+        PlayerData.instance().loadFromCache();
         this.loadingUI.show();
         this.loadMap(1);
         const collider = this.group.getComponent(BoxColliderComponent);
@@ -71,6 +74,7 @@ export class GameCtrl extends Component {
     }
 
     private gameOver() {
+        console.log("gameOver ---");
         UIManager.hideDialog(Constants.UIPage.gameUI);
         UIManager.showDialog(Constants.UIPage.resultUI);
     }
@@ -100,6 +104,7 @@ export class GameCtrl extends Component {
         this.carMgr.reset(this.mapMgr.currentPath);
         RunTimeData.instance().currentProgress = 0;
         RunTimeData.instance().maxProgress = this.mapMgr.maxProgress;
+        console.log(`gamectrl maxProgress: ${RunTimeData.instance().maxProgress}, ${RunTimeData.instance().currentProgress}`);
     }
 
     private loadMap(level: number, callback?: Function) {

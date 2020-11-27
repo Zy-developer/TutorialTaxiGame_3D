@@ -22,23 +22,6 @@
         "gltfIndex": 1
       }
     },
-    "70946": {
-      "importer": "gltf-embeded-image",
-      "uuid": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@70946",
-      "displayName": "",
-      "id": "70946",
-      "name": "taxi05Green.png-1.image",
-      "ver": "1.0.2",
-      "imported": true,
-      "files": [
-        ".png",
-        ".json"
-      ],
-      "subMetas": {},
-      "userData": {
-        "gltfIndex": 1
-      }
-    },
     "f29e8": {
       "importer": "gltf-mesh",
       "uuid": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@f29e8",
@@ -124,12 +107,12 @@
         "gltfIndex": 5
       }
     },
-    "4eeef": {
+    "98ee4": {
       "importer": "gltf-embeded-image",
-      "uuid": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@4eeef",
+      "uuid": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@98ee4",
       "displayName": "",
-      "id": "4eeef",
-      "name": "taxi05Green.png-0.image",
+      "id": "98ee4",
+      "name": "贴图 #21.image",
       "ver": "1.0.2",
       "imported": true,
       "files": [
@@ -141,12 +124,29 @@
         "gltfIndex": 0
       }
     },
-    "95b38": {
+    "1a057": {
       "importer": "gltf-embeded-image",
-      "uuid": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@95b38",
+      "uuid": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@1a057",
       "displayName": "",
-      "id": "95b38",
-      "name": "taxi05Green.png-2.image",
+      "id": "1a057",
+      "name": "贴图 #20.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      }
+    },
+    "7d8de": {
+      "importer": "gltf-embeded-image",
+      "uuid": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@7d8de",
+      "displayName": "",
+      "id": "7d8de",
+      "name": "贴图 #19.image",
       "ver": "1.0.2",
       "imported": true,
       "files": [
@@ -179,7 +179,7 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@4eeef"
+        "imageUuidOrDatabaseUri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@98ee4"
       }
     },
     "cb93c": {
@@ -203,7 +203,7 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@70946"
+        "imageUuidOrDatabaseUri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@1a057"
       }
     },
     "7c0f3": {
@@ -227,7 +227,7 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@95b38"
+        "imageUuidOrDatabaseUri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@7d8de"
       }
     },
     "b82d3": {
@@ -298,16 +298,16 @@
   "userData": {
     "imageMetas": [
       {
-        "name": "taxi05Green.png",
-        "uri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@4eeef"
+        "name": "贴图 #21",
+        "uri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@98ee4"
       },
       {
-        "name": "taxi05Green.png",
-        "uri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@70946"
+        "name": "贴图 #20",
+        "uri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@1a057"
       },
       {
-        "name": "taxi05Green.png",
-        "uri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@95b38"
+        "name": "贴图 #19",
+        "uri": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@7d8de"
       }
     ],
     "redirect": "1cb9bb35-800d-4cae-ab82-d465ac62de7b@fb28c",

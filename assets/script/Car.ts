@@ -177,6 +177,7 @@ export class Car extends Component {
 
     public setEntry(entry: Node, isMain: boolean = false) {
         this.node.worldPosition = entry.worldPosition;
+        console.log(`entry: ${entry}`);
         this._currentRoadPoint = entry.getComponent(RoadPoint);
         this._isMain = isMain;
         if (!this._currentRoadPoint) { return console.log("===> _currentRoadPoint is null."); }
@@ -323,7 +324,7 @@ export class Car extends Component {
             this._overCallback && this._overCallback(this);
             this._overCallback = null;
             if (this._isMain) {
-                CustomEventListener.emit(Constants.EventName.GAME_OVER);
+                // CustomEventListener.emit(Constants.EventName.GAME_OVER);
             }
         }
     }

@@ -5,23 +5,6 @@
   "uuid": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec",
   "files": [],
   "subMetas": {
-    "14b6a": {
-      "importer": "gltf-mesh",
-      "uuid": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@14b6a",
-      "displayName": "",
-      "id": "14b6a",
-      "name": "light1.mesh",
-      "ver": "1.1.0",
-      "imported": true,
-      "files": [
-        ".json",
-        ".bin"
-      ],
-      "subMetas": {},
-      "userData": {
-        "gltfIndex": 0
-      }
-    },
     "8cc00": {
       "importer": "gltf-mesh",
       "uuid": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@8cc00",
@@ -36,7 +19,7 @@
       ],
       "subMetas": {},
       "userData": {
-        "gltfIndex": 1
+        "gltfIndex": 0
       }
     },
     "4166c": {
@@ -53,7 +36,7 @@
       ],
       "subMetas": {},
       "userData": {
-        "gltfIndex": 2
+        "gltfIndex": 1
       }
     },
     "8c383": {
@@ -70,7 +53,7 @@
       ],
       "subMetas": {},
       "userData": {
-        "gltfIndex": 3
+        "gltfIndex": 2
       }
     },
     "6726b": {
@@ -87,7 +70,7 @@
       ],
       "subMetas": {},
       "userData": {
-        "gltfIndex": 4
+        "gltfIndex": 3
       }
     },
     "801a3": {
@@ -104,15 +87,32 @@
       ],
       "subMetas": {},
       "userData": {
+        "gltfIndex": 4
+      }
+    },
+    "14b6a": {
+      "importer": "gltf-mesh",
+      "uuid": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@14b6a",
+      "displayName": "",
+      "id": "14b6a",
+      "name": "light1.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
         "gltfIndex": 5
       }
     },
-    "bbef7": {
+    "591ca": {
       "importer": "gltf-embeded-image",
-      "uuid": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@bbef7",
+      "uuid": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@591ca",
       "displayName": "",
-      "id": "bbef7",
-      "name": "taxi04Yellow.png.image",
+      "id": "591ca",
+      "name": "贴图 #14.image",
       "ver": "1.0.2",
       "imported": true,
       "files": [
@@ -162,7 +162,7 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@bbef7"
+        "imageUuidOrDatabaseUri": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@591ca"
       }
     },
     "5b61b": {
@@ -241,8 +241,8 @@
   "userData": {
     "imageMetas": [
       {
-        "name": "taxi04Yellow.png",
-        "uri": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@bbef7"
+        "name": "贴图 #14",
+        "uri": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@591ca"
       },
       {
         "name": "贴图 #17",
@@ -252,12 +252,12 @@
     "redirect": "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@976b9",
     "assetFinder": {
       "meshes": [
-        "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@14b6a",
         "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@8cc00",
         "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@4166c",
         "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@8c383",
         "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@6726b",
-        "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@801a3"
+        "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@801a3",
+        "b76fd1d5-8572-40d0-a442-f8ea53a8f4ec@14b6a"
       ],
       "skeletons": [],
       "textures": [

@@ -107,4 +107,8 @@ export class Constants {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
+    public static GameConfigID = "TAXI_GAME_CACHE";
+    public static PlayerConfigID = "playerInfo";
+    public static MaxLevel = 20;
+
 }

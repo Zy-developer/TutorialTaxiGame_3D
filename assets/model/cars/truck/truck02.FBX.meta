@@ -38,16 +38,16 @@
         "gltfIndex": 0
       }
     },
-    "a9082": {
+    "181cb": {
       "importer": "gltf-embeded-image",
-      "uuid": "cb9a88f4-cd63-4ae9-8308-1731c71169ec@a9082",
+      "uuid": "cb9a88f4-cd63-4ae9-8308-1731c71169ec@181cb",
       "displayName": "",
-      "id": "a9082",
-      "name": "truck02Silvery.jpg.image",
+      "id": "181cb",
+      "name": "贴图 #4.image",
       "ver": "1.0.2",
       "imported": true,
       "files": [
-        ".jpg",
+        ".png",
         ".json"
       ],
       "subMetas": {},
@@ -76,15 +76,15 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "cb9a88f4-cd63-4ae9-8308-1731c71169ec@a9082"
+        "imageUuidOrDatabaseUri": "cb9a88f4-cd63-4ae9-8308-1731c71169ec@181cb"
       }
     }
   },
   "userData": {
     "imageMetas": [
       {
-        "name": "truck02Silvery.jpg",
-        "uri": "cb9a88f4-cd63-4ae9-8308-1731c71169ec@a9082"
+        "name": "贴图 #4",
+        "uri": "cb9a88f4-cd63-4ae9-8308-1731c71169ec@181cb"
       }
     ],
     "redirect": "cb9a88f4-cd63-4ae9-8308-1731c71169ec@76763",

@@ -5,23 +5,6 @@
   "uuid": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357",
   "files": [],
   "subMetas": {
-    "29226": {
-      "importer": "gltf-embeded-image",
-      "uuid": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@29226",
-      "displayName": "",
-      "id": "29226",
-      "name": "taxi01.jpg.image",
-      "ver": "1.0.2",
-      "imported": true,
-      "files": [
-        ".jpg",
-        ".json"
-      ],
-      "subMetas": {},
-      "userData": {
-        "gltfIndex": 0
-      }
-    },
     "050ef": {
       "importer": "gltf-mesh",
       "uuid": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@050ef",
@@ -124,6 +107,23 @@
         "gltfIndex": 5
       }
     },
+    "d412c": {
+      "importer": "gltf-embeded-image",
+      "uuid": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@d412c",
+      "displayName": "",
+      "id": "d412c",
+      "name": "贴图 #13.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
     "baf1c": {
       "importer": "texture",
       "uuid": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@baf1c",
@@ -145,7 +145,7 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@29226"
+        "imageUuidOrDatabaseUri": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@d412c"
       }
     },
     "e3cf8": {
@@ -184,8 +184,8 @@
   "userData": {
     "imageMetas": [
       {
-        "name": "taxi01.jpg",
-        "uri": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@29226"
+        "name": "贴图 #13",
+        "uri": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@d412c"
       }
     ],
     "redirect": "ef2f1fc2-0e20-4a5b-96d4-8605d34b8357@0f4b8",

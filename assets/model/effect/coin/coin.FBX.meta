@@ -5,23 +5,6 @@
   "uuid": "42714a91-3d66-491e-8500-d797afd15ef0",
   "files": [],
   "subMetas": {
-    "46193": {
-      "importer": "gltf-embeded-image",
-      "uuid": "42714a91-3d66-491e-8500-d797afd15ef0@46193",
-      "displayName": "",
-      "id": "46193",
-      "name": "coin.jpg.image",
-      "ver": "1.0.2",
-      "imported": true,
-      "files": [
-        ".jpg",
-        ".json"
-      ],
-      "subMetas": {},
-      "userData": {
-        "gltfIndex": 0
-      }
-    },
     "c6160": {
       "importer": "gltf-mesh",
       "uuid": "42714a91-3d66-491e-8500-d797afd15ef0@c6160",
@@ -33,6 +16,23 @@
       "files": [
         ".json",
         ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "df7df": {
+      "importer": "gltf-embeded-image",
+      "uuid": "42714a91-3d66-491e-8500-d797afd15ef0@df7df",
+      "displayName": "",
+      "id": "df7df",
+      "name": "贴图 #1.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
       ],
       "subMetas": {},
       "userData": {
@@ -60,7 +60,7 @@
         "premultiplyAlpha": false,
         "anisotropy": 1,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "42714a91-3d66-491e-8500-d797afd15ef0@46193"
+        "imageUuidOrDatabaseUri": "42714a91-3d66-491e-8500-d797afd15ef0@df7df"
       }
     },
     "9d093": {
@@ -99,8 +99,8 @@
   "userData": {
     "imageMetas": [
       {
-        "name": "coin.jpg",
-        "uri": "42714a91-3d66-491e-8500-d797afd15ef0@46193"
+        "name": "贴图 #1",
+        "uri": "42714a91-3d66-491e-8500-d797afd15ef0@df7df"
       }
     ],
     "redirect": "42714a91-3d66-491e-8500-d797afd15ef0@8038b",
